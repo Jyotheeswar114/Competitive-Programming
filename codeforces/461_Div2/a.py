@@ -74,7 +74,23 @@ def gcd(x, y):
 
 
 def main():
-    print("Hello World")
+    x, y = map_input()
+    if y == 1 and x > 0:
+        print("No")
+        return
+    if y == 0:
+        print("No")
+        return
+    copy_toys = y-1
+    if copy_toys > x:
+        print("No")
+    elif copy_toys == x:
+        print("Yes")
+    else:
+        if (x - copy_toys) % 2 == 0:
+            print("Yes")
+        else:
+            print("No")
 
 
 if __name__ == "__main__":
