@@ -12,28 +12,6 @@ def list_input(type=1):
     return list(map_input(type))
 
 
-def give_excel_column_name(r: int):
-    l = 1
-    r -= 1
-    ans: str = ""
-    while 26**l <= r:
-        r -= 26**l
-        l += 1
-    while l > 0:
-        ans += (chr(ord('A') + r//26**(l-1) % 26))
-        l -= 1
-    return ans
-
-
-def give_excel_column_number(name: str):
-    p = 1
-    ans: int = 0
-    for j in range(len(name)):
-        ans = ans + p * ((ord(name[j]) - ord('A')) + 1)
-        p = p * 26
-    return ans
-
-
 def sorted_indices(s):
     li = []
     for i in range(len(s)):
@@ -89,7 +67,7 @@ def floyd_warshell(g):
     return d
 
 
-def int_input(type=1):
+def naya_input(type=1):
     if type == 1:
         return int(input())
     elif type == 2:
@@ -97,7 +75,7 @@ def int_input(type=1):
 
 
 def range_input():
-    return range(int_input())
+    return range(naya_input())
 
 
 def gcd(x, y):
@@ -106,12 +84,45 @@ def gcd(x, y):
     return x
 
 
+def give_excel_column_name(r: int):
+    l = 1
+    r -= 1
+    ans: str = ""
+    while 26**l <= r:
+        r -= 26**l
+        l += 1
+    while l > 0:
+        ans += (chr(ord('A') + r//26**(l-1) % 26))
+        l -= 1
+    return ans
+
+
+def give_excel_column_number(name: str):
+    p = 1
+    ans: int = 0
+    for j in range(len(name)):
+        ans = ans + p * ((ord(name[j]) - ord('A')) + 1)
+        p = p * 26
+    return ans
+
+
 def main():
-    print("Hello World")
+    for _ in range_input():
+        s = input()
+        if s[0] == "R" and s[1].isdigit() and "C" in s[2:]:
+            c_in = s.index("C")
+            r = int(s[c_in+1:])
+            ans = give_excel_column_name(r)
+            c = s[1:c_in]
+            print(ans + c)
+        else:
+            i = 0
+            while s[i].isalpha():
+                i += 1
+            r = s[:i][::-1]
+            ans = give_excel_column_number(name=r)
+            print("R" + s[i:] + "C" + str(ans))
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except:
-        pass
+    main()

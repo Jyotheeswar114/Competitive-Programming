@@ -12,28 +12,6 @@ def list_input(type=1):
     return list(map_input(type))
 
 
-def give_excel_column_name(r: int):
-    l = 1
-    r -= 1
-    ans: str = ""
-    while 26**l <= r:
-        r -= 26**l
-        l += 1
-    while l > 0:
-        ans += (chr(ord('A') + r//26**(l-1) % 26))
-        l -= 1
-    return ans
-
-
-def give_excel_column_number(name: str):
-    p = 1
-    ans: int = 0
-    for j in range(len(name)):
-        ans = ans + p * ((ord(name[j]) - ord('A')) + 1)
-        p = p * 26
-    return ans
-
-
 def sorted_indices(s):
     li = []
     for i in range(len(s)):
@@ -89,17 +67,6 @@ def floyd_warshell(g):
     return d
 
 
-def int_input(type=1):
-    if type == 1:
-        return int(input())
-    elif type == 2:
-        return float(int(input()))
-
-
-def range_input():
-    return range(int_input())
-
-
 def gcd(x, y):
     while(y):
         x, y = y, x % y
@@ -107,7 +74,21 @@ def gcd(x, y):
 
 
 def main():
-    print("Hello World")
+    n = int(input())
+    l = []
+    c = 0
+    ans = 0
+    p = 0
+    st = [int(input())]
+    for i in range(1, n):
+        t = int(input())
+        if t < st[-1]:
+            st.append(t)
+        elif t == st[-1]:
+            ln = len(st)
+            ans += (n*(n+1)/2)
+            st = [t]
+        else:
 
 
 if __name__ == "__main__":
