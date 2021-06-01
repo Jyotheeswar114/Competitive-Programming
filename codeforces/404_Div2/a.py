@@ -106,19 +106,13 @@ def gcd(x, y):
     return x
 
 
-def is_prime(n):
-    if n < 2:
-        return False
-    if n == 2:
-        return True
-    for i in range(2, int(n/2) + 1):
-        if n % i == 0:
-            return False
-    return True
-
-
 def main():
-    print("Hello World")
+    ans = 0
+    d = {"Tetrahedron": 4, "Cube": 6, "Octahedron": 8,
+         "Dodecahedron": 12, "Icosahedron": 20}
+    for i in range(int_input()):
+        ans += d[input()]
+    print(ans)
 
 
 if __name__ == "__main__":

@@ -118,7 +118,12 @@ def is_prime(n):
 
 
 def main():
-    print("Hello World")
+    k, r = map_input()
+    k = k % 10
+    for i in range(1, 11):
+        if k * i % 10 == r or k*i % 10 == 0:
+            print(i)
+            return
 
 
 if __name__ == "__main__":

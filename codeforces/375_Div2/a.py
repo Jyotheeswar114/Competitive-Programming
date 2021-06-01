@@ -1,3 +1,6 @@
+from math import ceil, floor
+
+
 def map_input(type=1):
     if type == 1:
         return map(int, input().split())
@@ -117,8 +120,27 @@ def is_prime(n):
     return True
 
 
+def average(l):
+    return sum(l)/len(l)
+
+
 def main():
-    print("Hello World")
+    l = sorted(list_input())
+    print(l[-1] - l[0])
+    return
+    n = [average(l[:2]), average(l[1:]), average(l[::2])]
+    g = l.copy()
+    for i in n:
+        g.extend([ceil(i), floor(i)])
+    ans = []
+
+    for i in g:
+        tmp = 0
+        avg = int(i)
+        for j in l:
+            tmp += abs(i - j)
+        ans.append(tmp)
+    print(int(min(ans)))
 
 
 if __name__ == "__main__":

@@ -118,7 +118,10 @@ def is_prime(n):
 
 
 def main():
-    print("Hello World")
+    l = sorted(list_input())
+    for i in range(3):
+        print(l[3] - l[i], end=" ")
+    print()
 
 
 if __name__ == "__main__":

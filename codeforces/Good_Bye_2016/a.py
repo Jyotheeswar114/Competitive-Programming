@@ -106,19 +106,14 @@ def gcd(x, y):
     return x
 
 
-def is_prime(n):
-    if n < 2:
-        return False
-    if n == 2:
-        return True
-    for i in range(2, int(n/2) + 1):
-        if n % i == 0:
-            return False
-    return True
-
-
 def main():
-    print("Hello World")
+    n, k = map_input()
+    rem = 240 - k
+    i = 1
+    while i <= n and rem - i * 5 >= 0:
+        rem -= (i*5)
+        i += 1
+    print(i-1)
 
 
 if __name__ == "__main__":

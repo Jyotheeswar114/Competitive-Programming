@@ -1,3 +1,6 @@
+import math
+
+
 def map_input(type=1):
     if type == 1:
         return map(int, input().split())
@@ -106,19 +109,11 @@ def gcd(x, y):
     return x
 
 
-def is_prime(n):
-    if n < 2:
-        return False
-    if n == 2:
-        return True
-    for i in range(2, int(n/2) + 1):
-        if n % i == 0:
-            return False
-    return True
-
-
 def main():
-    print("Hello World")
+    n = int_input()
+    odd_sum = (math.ceil(n/2))**2
+    ans = (n*(n+1))//2 - 2 * odd_sum
+    print(ans)
 
 
 if __name__ == "__main__":

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3cd
 def map_input(type=1):
     if type == 1:
         return map(int, input().split())
@@ -106,19 +107,23 @@ def gcd(x, y):
     return x
 
 
-def is_prime(n):
-    if n < 2:
-        return False
-    if n == 2:
-        return True
-    for i in range(2, int(n/2) + 1):
-        if n % i == 0:
-            return False
-    return True
-
-
 def main():
-    print("Hello World")
+    n = int_input()
+    t = 0
+    while n > 0:
+        if n % 10 == 7 or n % 10 == 4:
+            t += 1
+        n = n // 10
+    ans = "YES"
+    if t == 0:
+        ans = "NO"
+    # print(t)
+    while t > 0:
+        if t % 10 != 7 and t % 10 != 4:
+            ans = "NO"
+            break
+        t = t//10
+    print(ans)
 
 
 if __name__ == "__main__":

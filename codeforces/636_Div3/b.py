@@ -118,7 +118,16 @@ def is_prime(n):
 
 
 def main():
-    print("Hello World")
+    for _ in range_input():
+        n = int_input()
+        if n % 4 == 0:
+            print("YES")
+            l = list(range(1, n+1))
+            ans = l[1::2] + l[::2]
+            ans[-1] += (n//2)
+            print(*ans)
+        else:
+            print("NO")
 
 
 if __name__ == "__main__":

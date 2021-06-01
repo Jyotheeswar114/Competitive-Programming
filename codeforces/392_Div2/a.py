@@ -118,7 +118,10 @@ def is_prime(n):
 
 
 def main():
-    print("Hello World")
+    n = int_input()
+    l = list_input()
+    mx = max(l)
+    print(n*mx - sum(l))
 
 
 if __name__ == "__main__":
