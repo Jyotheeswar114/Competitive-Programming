@@ -1,6 +1,3 @@
-from math import ceil
-
-
 def map_input(type=1):
     if type == 1:
         return map(int, input().split())
@@ -121,7 +118,10 @@ def is_prime(n):
 
 
 def main():
-    print("Hello World")
+    if int_input() % 2 == 1:
+        print("Ehab")
+    else:
+        print("Mahmoud")
 
 
 if __name__ == "__main__":

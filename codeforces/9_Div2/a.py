@@ -121,7 +121,16 @@ def is_prime(n):
 
 
 def main():
-    print("Hello World")
+    y, w = map_input()
+    a = 7 - max(y, w)
+    b = 6
+    if a % 2 == 0:
+        a = a // 2
+        b = b // 2
+    if a % 3 == 0:
+        a = a // 3
+        b = b // 3
+    print("{}/{}".format(a, b))
 
 
 if __name__ == "__main__":

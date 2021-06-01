@@ -121,7 +121,12 @@ def is_prime(n):
 
 
 def main():
-    print("Hello World")
+    for _ in range_input():
+        n, x = map_input()
+        if n <= 2:
+            print(1)
+        else:
+            print(ceil((n - 2)/x) + 1)
 
 
 if __name__ == "__main__":

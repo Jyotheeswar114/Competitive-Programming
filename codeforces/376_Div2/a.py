@@ -121,7 +121,15 @@ def is_prime(n):
 
 
 def main():
-    print("Hello World")
+    s = input()
+    p = 'a'
+    ans = 0
+    for i in s:
+        tmp = abs(ord(p) - ord(i))
+        # print(tmp, 26 - tmp)
+        ans += min(tmp, 26 - tmp)
+        p = i
+    print(ans)
 
 
 if __name__ == "__main__":
