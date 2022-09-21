@@ -1,0 +1,37 @@
+* Graph Traversal
+** Depth First Search (dfs)
+#+NAME: dfs
+#+begin_src cpp
+  vector<int> adj[N];
+  bool visited[N];
+  void dfs(int s){
+    if(visited[s]) return;
+    visited[s] = true;
+    // process node s here
+    for(auto u: adj[s]){
+      dfs(u);
+    }
+  }
+#+end_src
+** Bredth First Search
+#+name: bfs
+#+begin_src cpp
+  queue<int> q;
+  bool visited[N];
+  int distance[N];
+  int x = 0;// source node
+
+  visited[x] = true;
+  distance[x] = 0;
+  q.push(x);
+  while(!q.empty()){
+    int s = q.front(); q.pop();
+    // process node s here
+    for(auto u: adj[s]){
+      if(visited[u]) continue;
+      visited[u] = true;
+      distance[u] = distance[s] + 1;
+      q.push(u);
+    }
+  }
+#+end_src

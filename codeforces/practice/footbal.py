@@ -1,0 +1,21 @@
+s=input()
+ones=0
+zeros=0
+flag=0
+for i in s:
+    if(i=='1'):
+        ones+=1
+        zeros=0
+        if(ones>6):
+            flag=1
+            break
+    else:
+        zeros+=1
+        ones=0
+        if(zeros>6):
+            flag=1
+            break
+if(flag):
+    print("YES")
+else:
+    print("NO")
